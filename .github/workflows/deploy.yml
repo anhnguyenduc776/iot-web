@@ -1,0 +1,64 @@
+name: Deploy and Run Server
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  # Chạy mỗi 6 giờ để đảm bảo server luôn hoạt động
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Start server with PM2
+      run: |
+        npm install -g pm2
+        pm2 start server.js --name "iot-server" --time
+        pm2 save
+      env:
+        PORT: 3000
+        MQTT_BROKER: test.mosquitto.org
+        MQTT_TOPICS: '{"temperature": "anhnguyenduc04/iot/temperature", "gas": "anhnguyenduc04/iot/gas"}'
+        
+    - name: Setup monitoring
+      run: |
+        pm2 monit
+        pm2 logs
+
+  deploy-pages:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: |
+          mkdir -p public
+          cp -r *.html *.css *.js *.jpg public/
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages 
