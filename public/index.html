@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -43,54 +44,50 @@
                     <h2>Giới Thiệu Đề Tài</h2>
                     <div class="intro-content">
                         <h3>Hệ Thống Giám Sát Nhiệt Độ Và Nồng Độ Khí Gas Thông Minh</h3>
-                        <p>Đề tài nghiên cứu và phát triển hệ thống giám sát thông minh sử dụng công nghệ IoT để theo dõi nhiệt độ và nồng độ khí gas trong môi trường. Hệ thống được thiết kế với các tính năng:</p>
-                        <ul>
-                            <li>Giám sát nhiệt độ môi trường realtime</li>
-                            <li>Đo lường nồng độ khí gas</li>
-                            <li>Giao diện web trực quan, dễ sử dụng</li>
-                            <li>Kết nối không dây thông qua MQTT</li>
-                            <li>Bảo mật dữ liệu</li>
-                        </ul>
-                    </div>
-                </div>
+                        <p>
+                            Đề tài của chúng tôi tập trung vào việc xây dựng một hệ thống IoT thông minh, giúp giám sát và cảnh báo nhiệt độ cùng nồng độ khí gas trong môi trường. Với việc sử dụng ESP32 làm trung tâm xử lý, kết hợp cảm biến DHT22 đo nhiệt độ và MQ-2 phát hiện khí gas, hệ thống có thể theo dõi và cập nhật dữ liệu theo thời gian thực.
+                        </p>
 
-                <div class="system-architecture">
-                    <h2>Sơ Đồ Hệ Thống</h2>
-                    <div class="architecture-content">
-                        <img src="system-diagram.jpg" alt="Sơ đồ hệ thống" onerror="this.src='https://via.placeholder.com/800x400?text=Sơ+đồ+hệ+thống'">
-                        <p>Hệ thống được xây dựng dựa trên kiến trúc IoT với các thành phần chính:</p>
-                        <ul>
-                            <li>Cảm biến nhiệt độ và khí gas</li>
-                            <li>Vi điều khiển ESP32</li>
-                            <li>Broker MQTT</li>
-                            <li>Web Server</li>
-                            <li>Giao diện người dùng</li>
-                        </ul>
+                        <!-- Thêm phần hiển thị ảnh mô hình -->
+                        <div class="model-images">
+                            <div class="model-image-container">
+                                <button class="nav-arrow left" onclick="prevImage()">❮</button>
+                                <div class="image-wrapper">
+                                    <img src="images/mohinh1.jpg" alt="Mô hình hệ thống" id="modelImage" onerror="this.src='https://via.placeholder.com/800x600?text=Mô+hình+hệ+thống'">
+                                </div>
+                                <button class="nav-arrow right" onclick="nextImage()">❯</button>
+                            </div>
+                        </div>
+                        <div class="system-diagram">
+                            
+                            <img src="system-diagram.jpg" alt="Sơ đồ hệ thống" onerror="this.src='https://via.placeholder.com/800x400?text=Sơ+đồ+hệ+thống'" style="max-width: 100%; margin: 20px 0;">
+
+                        </div>
                     </div>
                 </div>
 
                 <div class="features">
-                    <h2>Tính Năng Chính</h2>
+                    <h2>Tính Năng Chi Tiết</h2>
                     <div class="features-grid">
-                        <div class="feature-box">
-                            <i class="fas fa-thermometer-half"></i>
-                            <h3>Giám Sát Nhiệt Độ</h3>
-                            <p>Theo dõi nhiệt độ môi trường liên tục với độ chính xác cao</p>
+                        <div class="feature-box energy-saving">
+                            <i class="fas fa-moon"></i>
+                            <h3>Chức Năng Ngủ Tiết Kiệm Năng Lượng</h3>
+                            <p>Tự động giảm tiêu thụ điện khi không cần thiết</p>
                         </div>
-                        <div class="feature-box">
+                        <div class="feature-box gas-detection">
                             <i class="fas fa-smog"></i>
-                            <h3>Đo Khí Gas</h3>
-                            <p>Phát hiện và cảnh báo khi nồng độ khí gas vượt ngưỡng</p>
+                            <h3>Phát Hiện Rò Rỉ Khí Gas</h3>
+                            <p>Giám sát liên tục và phát hiện sớm rò rỉ</p>
                         </div>
-                        <div class="feature-box">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Thống Kê Dữ Liệu</h3>
-                            <p>Hiển thị dữ liệu dạng biểu đồ và báo cáo</p>
-                        </div>
-                        <div class="feature-box">
+                        <div class="feature-box alert">
                             <i class="fas fa-bell"></i>
-                            <h3>Cảnh Báo Thông Minh</h3>
-                            <p>Hệ thống cảnh báo khi phát hiện bất thường</p>
+                            <h3>Cảnh Báo Tức Thì</h3>
+                            <p>Thông báo ngay lập tức khi vượt ngưỡng an toàn</p>
+                        </div>
+                        <div class="feature-box monitoring">
+                            <i class="fas fa-laptop"></i>
+                            <h3>Theo Dõi Từ Mọi Thiết Bị</h3>
+                            <p>Quản lý hệ thống từ bất kỳ đâu qua web</p>
                         </div>
                     </div>
                 </div>
@@ -101,27 +98,184 @@
         <div class="page-content" id="dashboard-page" style="display: none;">
             <div class="dashboard">
                 <h2 class="dashboard-title">Bảng Điều Khiển Giám Sát</h2>
+                
+                <!-- Sensor readings -->
                 <div class="sensor-container">
-                    <div class="sensor-box">
-                        <h2>Nhiệt Độ</h2>
-                        <div class="value" id="temperature">--°C</div>
-                        <div class="sensor-icon">
-                            <i class="fas fa-thermometer-half"></i>
+                    <div class="sensor-card">
+                        <div class="sensor-icon">🌡️</div>
+                        <div class="sensor-label">Nhiệt Độ</div>
+                        <div class="sensor-value temperature-value" id="temperature">--</div>
+                        <div class="sensor-unit">°C</div>
+                        <div class="alert-status" id="temperatureAlert"></div>
+                    </div>
+
+                    <div class="sensor-card">
+                        <div class="sensor-icon">💧</div>
+                        <div class="sensor-label">Độ Ẩm</div>
+                        <div class="sensor-value humidity-value" id="humidity">--</div>
+                        <div class="sensor-unit">%</div>
+                        <div class="alert-status" id="humidityAlert"></div>
+                    </div>
+
+                    <div class="sensor-card">
+                        <div class="sensor-icon">💨</div>
+                        <div class="sensor-label">Khí Gas</div>
+                        <div class="sensor-value gas-value" id="gas">--</div>
+                        <div class="sensor-unit">ppm</div>
+                        <div class="alert-status" id="gasAlert"></div>
+                    </div>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <h2>Điều Khiển Thiết Bị</h2>
+                    <div class="control-container">
+                        <!-- Fan Control -->
+                        <div class="control-box">
+                            <div class="control-icon">
+                                <i class="fas fa-fan"></i>
+                            </div>
+                            <h3>Quạt</h3>
+                            <div class="control-status" id="fan-status">Đang tắt</div>
+                            <button class="control-button" id="fan-toggle" onclick="toggleDevice('fan')">
+                                <i class="fas fa-power-off"></i> Bật/Tắt
+                            </button>
                         </div>
-                        <div class="connection-status" id="temp-status">
-                            <span class="status-dot"></span>
-                            <span class="status-text">Đang kết nối...</span>
+
+                        <!-- Pump Control -->
+                        <div class="control-box">
+                            <div class="control-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Bơm</h3>
+                            <div class="control-status" id="pump-status">Đang tắt</div>
+                            <button class="control-button" id="pump-toggle" onclick="toggleDevice('pump')">
+                                <i class="fas fa-power-off"></i> Bật/Tắt
+                            </button>
+                        </div>
+
+                        <!-- Sleep Mode Control -->
+                        <div class="control-section">
+                            <h3>Chế Độ Ngủ</h3>
+                            <div class="sleep-control">
+                                <div class="time-input">
+                                    <label>Thời gian ngủ (phút):</label>
+                                    <div class="time-input-group">
+                                        <input type="number" id="sleepTime" min="1" max="120" value="30" style="width: 100px;">
+                                        <button id="sendTime" class="control-button" style="padding: 8px 12px; font-size: 14px;">
+                                            <i class="fas fa-paper-plane"></i> Gửi
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="sleep-status">
+                                    <span id="sleepStatus">Chế độ ngủ: Tắt</span>
+                                </div>
+                                <div class="sleep-buttons">
+                                    <button id="sleepOn" class="control-button">
+                                        <i class="fas fa-power-off"></i> Bật Chế Độ Ngủ
+                                    </button>
+                                    <button id="sleepOff" class="control-button">
+                                        <i class="fas fa-power-off"></i> Tắt Chế Độ Ngủ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thêm nút xem lịch sử email -->
+                        <div class="control-section">
+                            <h3>Lịch sử cảnh báo</h3>
+                            <div class="alert-history">
+                                <button id="viewAlertHistory" class="control-button">Xem lịch sử cảnh báo</button>
+                                <div id="alertHistory" class="alert-list"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="sensor-box">
-                        <h2>Nồng Độ Khí Gas</h2>
-                        <div class="value" id="gas">-- ppm</div>
-                        <div class="sensor-icon">
-                            <i class="fas fa-smog"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Introduction Page Content -->
+        <div class="page-content" id="intro-page" style="display: none;">
+            <div class="team-section">
+                <h2>Thành Viên Nhóm</h2>
+                <div class="team-grid">
+                    <!-- Thành viên 1 -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/member1.jpg" alt="Trần Trung Nhân" onerror="this.src='https://via.placeholder.com/300x300?text=Trần+Trung+Nhân'">
                         </div>
-                        <div class="connection-status" id="gas-status">
-                            <span class="status-dot"></span>
-                            <span class="status-text">Đang kết nối...</span>
+                        <div class="member-info">
+                            <h3>Trần Trung Nhân</h3>
+                            <p class="role">Thành viên</p>
+                            <p class="student-id">MSSV: 6351030049</p>
+                            <div class="member-social">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thành viên 2 -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/member2.jpg" alt="Nguyễn Trịnh Thanh Đạt" onerror="this.src='https://via.placeholder.com/300x300?text=Nguyễn+Trịnh+Thanh+Đạt'">
+                        </div>
+                        <div class="member-info">
+                            <h3>Nguyễn Trịnh Thanh Đạt</h3>
+                            <p class="role">Thành viên</p>
+                            <p class="student-id">MSSV: 63510300</p>
+                            <div class="member-social">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thành viên 3 -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/member3.jpg" alt="Trần Nguyên Hạo" onerror="this.src='https://via.placeholder.com/300x300?text=Trần+Nguyên+Hạo'">
+                        </div>
+                        <div class="member-info">
+                            <h3>Trần Nguyên Hạo</h3>
+                            <p class="role">Thành viên</p>
+                            <p class="student-id">MSSV: 6351030049</p>
+                            <div class="member-social">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thành viên 4 -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/member4.jpg" alt="Nguyễn Đức Ánh" onerror="this.src='https://via.placeholder.com/300x300?text=Nguyễn+Đức+Ánh'">
+                        </div>
+                        <div class="member-info">
+                            <h3>Nguyễn Đức Ánh</h3>
+                            <p class="role">Trưởng nhóm</p>
+                            <p class="student-id">MSSV: 6351030005</p>
+                            <div class="member-social">
+                                <a href="https://www.facebook.com/profile.php?id=100052773906365" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://github.com/anhnguyenduc776" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,8 +287,229 @@
         </footer>
     </div>
 
+    <style>
+    /* Control Panel Styles */
+    .control-panel {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .control-panel h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .control-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .control-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .control-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .control-icon {
+        font-size: 2em;
+        color: #3498db;
+        margin-bottom: 10px;
+    }
+
+    .control-box h3 {
+        color: #2c3e50;
+        margin: 10px 0;
+    }
+
+    .control-status {
+        color: #7f8c8d;
+        margin: 10px 0;
+        font-size: 0.9em;
+    }
+
+    .control-button {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .control-button:hover {
+        background: #2980b9;
+    }
+
+    .control-button.active {
+        background: #27ae60;
+    }
+
+    .control-status.on {
+        color: #27ae60;
+    }
+
+    .control-status.off {
+        color: #e74c3c;
+    }
+
+    .sleep-control {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+
+    .time-input {
+        margin-bottom: 15px;
+    }
+
+    .time-input label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .time-input input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .sleep-status {
+        margin: 15px 0;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .sleep-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .sleep-buttons button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    #sleepOn {
+        background: #4CAF50;
+        color: white;
+    }
+
+    #sleepOn:hover {
+        background: #45a049;
+    }
+
+    #sleepOff {
+        background: #f44336;
+        color: white;
+    }
+
+    #sleepOff:hover {
+        background: #da190b;
+    }
+
+    .alert-history {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .alert-list {
+        margin-top: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .alert-item {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .alert-item.warning {
+        border-left: 4px solid #ffc107;
+    }
+
+    .alert-item.danger {
+        border-left: 4px solid #dc3545;
+    }
+
+    .alert-time {
+        font-size: 0.8em;
+        color: #6c757d;
+    }
+
+    .alert-message {
+        margin-top: 5px;
+        font-weight: bold;
+    }
+
+    .time-input-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .time-input-group input {
+        width: 100px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .time-input-group button {
+        padding: 8px 12px;
+        background: #2196F3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .time-input-group button:hover {
+        background: #1976D2;
+    }
+    </style>
+
     <script>
         // Navigation
+    document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -151,27 +526,220 @@
                 
                 // Show selected page
                 const pageId = this.getAttribute('data-page') + '-page';
-                document.getElementById(pageId).style.display = 'block';
+                const selectedPage = document.getElementById(pageId);
+                if (selectedPage) {
+                    selectedPage.style.display = 'block';
+                    console.log('Showing page:', pageId);
+                } else {
+                    console.error('Page not found:', pageId);
+                }
             });
+        });
+
+        // Show home page by default
+        document.getElementById('home-page').style.display = 'block';
         });
 
         // MQTT Configuration
         const mqttConfig = {
             host: 'test.mosquitto.org',
-            port: 1883,
+        port: 8080,
             protocol: 'ws',
-            clientId: 'anhnguyenduc04/iot_' + Math.random().toString(16).substr(2, 8)
+        clientId: 'anhnguyenduc04/iot_web_' + Math.random().toString(16).substr(2, 8)
         };
 
-        // Topics to subscribe to
+    // Topics to subscribe
         const topics = {
-            temperature: 'anhnguyenduc04/iot/temperature',
-            gas: 'anhnguyenduc04/iot/gas'
+        main: 'anhnguyenduc04/iot'
+    };
+
+    // Connect to MQTT broker
+    console.log('Đang kết nối đến MQTT broker...');
+    const client = mqtt.connect(`ws://${mqttConfig.host}:${mqttConfig.port}/mqtt`);
+
+    // Handle connection
+    client.on('connect', () => {
+        console.log('Đã kết nối thành công đến MQTT broker');
+        updateAllConnectionStatus(true);
+        
+        // Subscribe to main topic
+        client.subscribe(topics.main, (err) => {
+            if (err) {
+                console.error('Lỗi khi subscribe topic:', err);
+                updateAllConnectionStatus(false);
+            } else {
+                console.log('Đã subscribe thành công đến topic:', topics.main);
+            }
+        });
+    });
+
+    // Handle incoming messages
+    client.on('message', (topic, message) => {
+        try {
+            console.log('Nhận được dữ liệu:', topic, message.toString());
+            if (topic === topics.main) {
+                const data = JSON.parse(message.toString());
+                updateSensorData(data);
+            }
+        } catch (error) {
+            console.error('Lỗi khi xử lý dữ liệu:', error);
+        }
+    });
+
+    // Khởi tạo EmailJS với Gmail
+    (function() {
+        // Public Key của bạn từ EmailJS
+        emailjs.init("public_key");
+    })();
+
+    // Cấu hình cảnh báo
+    const alertConfig = {
+        thresholds: {
+            temperature: 35,  // Nhiệt độ cao > 35°C
+            humidity: 30     // Độ ẩm thấp < 30%
+        },
+        interval: 60000,     // 1 phút
+        email: {
+            to: "ducanh20102004@gmail.com",
+            serviceId: "service_gmail",  // Service ID từ EmailJS
+            templateId: "template_alert", // Template ID từ EmailJS
+            from: "Hệ thống IoT"
+        }
+    };
+
+    // Hàm gửi cảnh báo qua Gmail
+    function sendAlert(type, value) {
+        const templateParams = {
+            to_name: "Người quản lý",
+            to_email: alertConfig.email.to,
+            from_name: alertConfig.email.from,
+            subject: `[CẢNH BÁO] ${type === 'temperature' ? 'Nhiệt độ cao' : 'Độ ẩm thấp'} - Hệ thống IoT`,
+            message: `
+🚨 CẢNH BÁO QUAN TRỌNG!
+
+${type === 'temperature' ? '🌡️ Nhiệt độ đã vượt ngưỡng cho phép!' : '💧 Độ ẩm đã xuống quá thấp!'}
+
+Chi tiết:
+- Loại cảnh báo: ${type === 'temperature' ? 'Nhiệt độ cao' : 'Độ ẩm thấp'}
+- Giá trị hiện tại: ${value}${type === 'temperature' ? '°C' : '%'}
+- Ngưỡng cảnh báo: ${type === 'temperature' ? '>' + alertConfig.thresholds.temperature + '°C' : '<' + alertConfig.thresholds.humidity + '%'}
+- Thời gian: ${new Date().toLocaleString('vi-VN')}
+
+⚠️ Vui lòng kiểm tra và có biện pháp xử lý kịp thời!
+
+--
+Trân trọng,
+Hệ thống Giám sát IoT
+        `
         };
+
+        emailjs.send(alertConfig.email.serviceId, alertConfig.email.templateId, templateParams)
+            .then(function(response) {
+                console.log('✅ Đã gửi email cảnh báo thành công!');
+                showNotification('Đã gửi cảnh báo', `Đã gửi email cảnh báo đến ${alertConfig.email.to}`, 'success');
+            })
+            .catch(function(error) {
+                console.error('❌ Lỗi khi gửi email:', error);
+                showNotification('Lỗi gửi cảnh báo', 'Không thể gửi email cảnh báo. Vui lòng kiểm tra lại.', 'error');
+            });
+    }
+
+    // Hàm hiển thị thông báo
+    function showNotification(title, message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <h4>${title}</h4>
+            <p>${message}</p>
+        `;
+        document.body.appendChild(notification);
+
+        // Tự động ẩn sau 5 giây
+        setTimeout(() => {
+            notification.remove();
+        }, 5000);
+    }
+
+    // Thêm style cho notification
+    const style = document.createElement('style');
+    style.textContent = `
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.5s ease;
+    }
+
+    .notification.success {
+        border-left: 4px solid #4CAF50;
+    }
+
+    .notification.error {
+        border-left: 4px solid #f44336;
+    }
+
+    .notification h4 {
+        margin: 0 0 5px 0;
+        color: #333;
+    }
+
+    .notification p {
+        margin: 0;
+        color: #666;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    `;
+    document.head.appendChild(style);
+
+    // Cập nhật hàm updateSensorData để thêm kiểm tra cảnh báo
+    function updateSensorData(data) {
+        try {
+            // Update temperature
+            const tempElement = document.getElementById('temperature');
+            if (tempElement && data.temperature !== undefined) {
+                tempElement.textContent = `${data.temperature.toFixed(1)}°C`;
+                updateConnectionStatus('temp-status', true);
+            }
+            
+            // Update humidity
+            const humidityElement = document.getElementById('humidity');
+            if (humidityElement && data.humidity !== undefined) {
+                humidityElement.textContent = `${data.humidity.toFixed(1)}%`;
+                updateConnectionStatus('humidity-status', true);
+            }
+
+            // Kiểm tra và gửi cảnh báo
+            checkAndSendAlert(data);
+        } catch (error) {
+            console.error('Lỗi khi cập nhật dữ liệu cảm biến:', error);
+        }
+    }
+
+    // Update all connection status
+    function updateAllConnectionStatus(isConnected) {
+        updateConnectionStatus('temp-status', isConnected);
+        updateConnectionStatus('humidity-status', isConnected);
+    }
 
         // Update connection status
         function updateConnectionStatus(elementId, isConnected) {
             const status = document.getElementById(elementId);
+        if (status) {
             const dot = status.querySelector('.status-dot');
             const text = status.querySelector('.status-text');
             
@@ -179,68 +747,284 @@
                 dot.style.backgroundColor = '#4CAF50';
                 text.textContent = 'Đã kết nối';
             } else {
-                dot.style.backgroundColor = '#f44336';
-                text.textContent = 'Mất kết nối';
+                dot.style.backgroundColor = '#f44336';                text.textContent = 'Đang kết nối...';
             }
         }
+    }
 
-        // Connect to MQTT broker
-        const client = mqtt.connect(mqttConfig);
+    // Handle connection errors
+    client.on('error', (err) => {
+        console.error('Lỗi MQTT:', err);
+        updateAllConnectionStatus(false);
+    });
 
-        // Handle connection
-        client.on('connect', () => {
-            console.log('Connected to MQTT broker');
-            updateConnectionStatus('temp-status', true);
-            updateConnectionStatus('gas-status', true);
+    // Handle disconnection
+    client.on('close', () => {
+        console.log('Mất kết nối với MQTT broker');
+        updateAllConnectionStatus(false);
+    });
+
+    // Handle offline status
+    client.on('offline', () => {
+        console.log('Client đang offline');
+        updateAllConnectionStatus(false);
+    });
+
+    // Initial status update
+    updateAllConnectionStatus(false);
+
+    // Device states
+    const deviceStates = {
+        fan: false,
+        pump: false,
+        sleep: false
+    };
+
+    // Topics for publishing
+    const publishTopics = {
+        fan: 'anhnguyenduc04/iot/fan',
+        pump: 'anhnguyenduc04/iot/pump',
+        sleep: 'anhnguyenduc04/iot/sleep'
+    };
+
+    // Toggle device function
+    function toggleDevice(device) {
+        if (!client.connected) {
+            alert('Chưa kết nối đến MQTT broker!');
+            return;
+        }
+
+        deviceStates[device] = !deviceStates[device];
+        const state = deviceStates[device];
+        
+        // Publish to MQTT
+        client.publish(publishTopics[device], state ? '1' : '0', { qos: 1 }, (error) => {
+            if (error) {
+                console.error(`Lỗi khi gửi lệnh ${device}:`, error);
+                return;
+            }
             
-            // Subscribe to topics
-            client.subscribe([topics.temperature, topics.gas], (err) => {
+            // Update UI
+            const statusElement = document.getElementById(`${device}-status`);
+            const buttonElement = document.getElementById(`${device}-toggle`);
+            
+            if (statusElement) {
+                statusElement.textContent = state ? 'Đang bật' : 'Đang tắt';
+                statusElement.className = `control-status ${state ? 'on' : 'off'}`;
+            }
+            
+            if (buttonElement) {
+                buttonElement.className = `control-button ${state ? 'active' : ''}`;
+            }
+        });
+    }
+
+    // Subscribe to device status topics
+    client.on('connect', () => {
+        // ... existing connection code ...
+        
+        // Subscribe to device status topics
+        Object.values(publishTopics).forEach(topic => {
+            client.subscribe(topic, (err) => {
                 if (err) {
-                    console.error('Error subscribing to topics:', err);
-                    updateConnectionStatus('temp-status', false);
-                    updateConnectionStatus('gas-status', false);
+                    console.error('Lỗi khi subscribe topic thiết bị:', err);
                 } else {
-                    console.log('Subscribed to topics successfully');
+                    console.log('Đã subscribe topic thiết bị:', topic);
                 }
+            });
             });
         });
 
-        // Handle incoming messages
+    // Handle incoming device status messages
         client.on('message', (topic, message) => {
             try {
-                const value = parseFloat(message.toString());
-                
-                if (topic === topics.temperature) {
-                    document.getElementById('temperature').textContent = `${value.toFixed(1)}°C`;
-                    updateConnectionStatus('temp-status', true);
-                } else if (topic === topics.gas) {
-                    document.getElementById('gas').textContent = `${value.toFixed(1)} ppm`;
-                    updateConnectionStatus('gas-status', true);
+            const value = message.toString();
+            
+            // Update device states based on topic
+            Object.entries(publishTopics).forEach(([device, deviceTopic]) => {
+                if (topic === deviceTopic) {
+                    const state = value === '1';
+                    deviceStates[device] = state;
+                    
+                    const statusElement = document.getElementById(`${device}-status`);
+                    const buttonElement = document.getElementById(`${device}-toggle`);
+                    
+                    if (statusElement) {
+                        statusElement.textContent = state ? 'Đang bật' : 'Đang tắt';
+                        statusElement.className = `control-status ${state ? 'on' : 'off'}`;
+                    }
+                    
+                    if (buttonElement) {
+                        buttonElement.className = `control-button ${state ? 'active' : ''}`;
+                    }
                 }
+            });
             } catch (error) {
-                console.error('Error processing message:', error);
+            console.error('Lỗi khi xử lý trạng thái thiết bị:', error);
+        }
+    });
+
+    // Thêm xử lý cho nút gửi thời gian
+    document.getElementById('sendTime').addEventListener('click', function() {
+        const sleepTime = document.getElementById('sleepTime').value;
+        if (sleepTime < 1 || sleepTime > 120) {
+            alert('Vui lòng nhập thời gian từ 1 đến 120 phút');
+            return;
+        }
+        
+        // Gửi thời gian qua MQTT
+        if (client && client.connected) {
+            const timeCommand = {
+                type: 'sleep',
+                action: 'set_time',
+                duration: parseInt(sleepTime)
+            };
+            
+            client.publish('anhnguyenduc04/iot/sleep/time', JSON.stringify(timeCommand), { qos: 1 }, (error) => {
+                if (error) {
+                    console.error('Lỗi khi gửi thời gian:', error);
+                    showNotification('Lỗi', 'Không thể gửi thời gian', 'error');
+                } else {
+                    console.log('Đã gửi thời gian:', sleepTime);
+                    showNotification('Thành công', `Đã gửi thời gian ngủ: ${sleepTime} phút`, 'success');
+                }
+            });
+        } else {
+            showNotification('Lỗi', 'Chưa kết nối đến MQTT', 'error');
+        }
+    });
+
+    // Cập nhật xử lý cho nút bật chế độ ngủ
+    document.getElementById('sleepOn').addEventListener('click', function() {
+        if (client && client.connected) {
+            client.publish('anhnguyenduc04/iot/sleep', 'ON', { qos: 1 }, (error) => {
+                if (error) {
+                    console.error('Lỗi khi bật chế độ ngủ:', error);
+                    showNotification('Lỗi', 'Không thể bật chế độ ngủ', 'error');
+                } else {
+                    console.log('Đã gửi lệnh bật chế độ ngủ');
+                    document.getElementById('sleepStatus').textContent = 'Chế độ ngủ: Đang bật';
+                    document.getElementById('sleepStatus').style.color = '#4CAF50';
+                    showNotification('Thành công', 'Đã bật chế độ ngủ', 'success');
+                }
+            });
+        } else {
+            showNotification('Lỗi', 'Chưa kết nối đến MQTT', 'error');
+        }
+    });
+
+    // Cập nhật xử lý cho nút tắt chế độ ngủ
+    document.getElementById('sleepOff').addEventListener('click', function() {
+        if (client && client.connected) {
+            client.publish('anhnguyenduc04/iot/sleep', 'OFF', { qos: 1 }, (error) => {
+                if (error) {
+                    console.error('Lỗi khi tắt chế độ ngủ:', error);
+                    showNotification('Lỗi', 'Không thể tắt chế độ ngủ', 'error');
+                } else {
+                    console.log('Đã gửi lệnh tắt chế độ ngủ');
+                    document.getElementById('sleepStatus').textContent = 'Chế độ ngủ: Đang tắt';
+                    document.getElementById('sleepStatus').style.color = '#f44336';
+                    showNotification('Thành công', 'Đã tắt chế độ ngủ', 'success');
+                }
+            });
+        } else {
+            showNotification('Lỗi', 'Chưa kết nối đến MQTT', 'error');
+        }
+    });
+
+    // Thêm xử lý tin nhắn MQTT cho chế độ ngủ
+    client.on('message', (topic, message) => {
+        try {
+            if (topic === 'anhnguyenduc04/iot/sleep/status') {
+                const status = message.toString();
+                const statusElement = document.getElementById('sleepStatus');
+                
+                if (status === 'ON') {
+                    statusElement.textContent = 'Chế độ ngủ: Đang bật';
+                    statusElement.style.color = '#4CAF50';
+                } else if (status === 'OFF') {
+                    statusElement.textContent = 'Chế độ ngủ: Đang tắt';
+                    statusElement.style.color = '#f44336';
+                }
             }
-        });
+        } catch (error) {
+            console.error('Lỗi khi xử lý trạng thái chế độ ngủ:', error);
+        }
+    });
 
-        // Handle errors
-        client.on('error', (err) => {
-            console.error('MQTT Error:', err);
-            updateConnectionStatus('temp-status', false);
-            updateConnectionStatus('gas-status', false);
-        });
+    // Thêm vào phần JavaScript
+    document.getElementById('viewAlertHistory').addEventListener('click', function() {
+        fetch('/api/logs')
+            .then(response => response.text())
+            .then(logs => {
+                const alertHistory = document.getElementById('alertHistory');
+                alertHistory.innerHTML = '';
+                
+                // Lọc các log liên quan đến cảnh báo
+                const alertLogs = logs.split('\n').filter(log => 
+                    log.includes('CẢNH BÁO') || 
+                    log.includes('Nhiệt độ') || 
+                    log.includes('Độ ẩm')
+                );
+                
+                alertLogs.reverse().forEach(log => {
+                    const alertItem = document.createElement('div');
+                    alertItem.className = 'alert-item';
+                    
+                    if (log.includes('vượt ngưỡng')) {
+                        alertItem.classList.add('danger');
+                    } else {
+                        alertItem.classList.add('warning');
+                    }
+                    
+                    const time = document.createElement('div');
+                    time.className = 'alert-time';
+                    time.textContent = log.split(' - ')[0];
+                    
+                    const message = document.createElement('div');
+                    message.className = 'alert-message';
+                    message.textContent = log.split(' - ')[1];
+                    
+                    alertItem.appendChild(time);
+                    alertItem.appendChild(message);
+                    alertHistory.appendChild(alertItem);
+                });
+            })
+            .catch(error => {
+                console.error('Lỗi khi lấy lịch sử:', error);
+                alert('Không thể lấy lịch sử cảnh báo');
+            });
+    });
 
-        // Handle disconnection
-        client.on('close', () => {
-            console.log('Disconnected from MQTT broker');
-            updateConnectionStatus('temp-status', false);
-            updateConnectionStatus('gas-status', false);
-        });
+    // Image navigation
+    const images = [
+        'images/mohinh1.jpg',
+        'images/mohinh2.jpg'
+    ];
+    let currentImageIndex = 0;
+    const modelImage = document.getElementById('modelImage');
 
-        // Handle offline status
-        client.on('offline', () => {
-            console.log('Client is offline');
-            updateConnectionStatus('temp-status', false);
-            updateConnectionStatus('gas-status', false);
+    function updateImage() {
+        modelImage.src = images[currentImageIndex];
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        }
         });
     </script>
 </body>
